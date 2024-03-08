@@ -1,17 +1,56 @@
-public class Person {
-    private String firstName;
-    private String lastName;
+import java.util.Scanner;
 
-    public Person(String firstName, String lastName) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+public class TestWedding {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // prompt for the wedding details
+        System.out.println("Enter the first partner's name:");
+        String partnerOne = scanner.nextLine();
+
+        System.out.println("Enter the second partner's name:");
+        String partnerTwo = scanner.nextLine();
+
+        System.out.println("Enter the wedding date (e.g., 12/31/2024):");
+        String date = scanner.nextLine();
+
+        System.out.println("Enter the wedding location:");
+        String location = scanner.nextLine();
+
+        // Wedding object
+        Wedding myWedding = new Wedding(partnerOne, partnerTwo, date, location);
+
+        // displays the wedding details
+        System.out.println("Wedding Details:");
+        System.out.println(myWedding); // Assuming you've overridden the toString method in Wedding class
+
+        scanner.close();
+    }
+}
+
+class Wedding {
+    // attributes
+    private String partnerOne;
+    private String partnerTwo;
+    private String date;
+    private String location;
+
+    // constructor
+    public Wedding(String partnerOne, String partnerTwo, String date, String location) {
+        this.partnerOne = partnerOne;
+        this.partnerTwo = partnerTwo;
+        this.date = date;
+        this.location = location;
     }
 
-    public String getFirstName() {
-        return firstName;
+    // toString method to display wedding details
+    @Override
+    public String toString() {
+        return "Partner One: " + partnerOne + "\n" +
+                "Partner Two: " + partnerTwo + "\n" +
+                "Date: " + date + "\n" +
+                "Location: " + location;
     }
 
-    public String getLastName() {
-        return lastName;
-    }
+    // You can add getters and setters here if needed
 }
