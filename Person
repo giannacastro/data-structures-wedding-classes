@@ -1,17 +1,17 @@
-public class Person {
-    private String firstName;
-    private String lastName;
+public class couple {
+    private Person bride;
+    private Person groom;
 
-    public Person(String firstName, String lastName) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public couple(Person bride, Person groom) {
+        this.bride = bride;
+        this.groom = groom;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public Person getBride() {
+        return bride;
     }
 
-    public String getLastName() {
-        return lastName;
+    public Person getGroom() {
+        return groom;
     }
 }
