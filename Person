@@ -1,17 +1,61 @@
-public class Person {
-    private String firstName;
-    private String lastName;
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-    public Person(String firstName, String lastName) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-    }
+public class TestWeddingGUI {
+    public static void main(String[] args) {
+        // JFrame
+        JFrame frame = new JFrame("Wedding Details");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(300, 200);
+        frame.setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.PAGE_AXIS));
 
-    public String getFirstName() {
-        return firstName;
-    }
+        // labels and text fields
+        JLabel partnerOneLabel = new JLabel("Partner One:");
+        JTextField partnerOneField = new JTextField(20);
 
-    public String getLastName() {
-        return lastName;
+        JLabel partnerTwoLabel = new JLabel("Partner Two:");
+        JTextField partnerTwoField = new JTextField(20);
+
+        JLabel dateLabel = new JLabel("Wedding Date:");
+        JTextField dateField = new JTextField(20);
+
+        JLabel locationLabel = new JLabel("Wedding Location:");
+        JTextField locationField = new JTextField(20);
+
+        // submits the information
+        JButton submitButton = new JButton("Submit");
+
+        // action listener for the button
+        submitButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // actions when the button is clicked
+                String partnerOne = partnerOneField.getText();
+                String partnerTwo = partnerTwoField.getText();
+                String date = dateField.getText();
+                String location = locationField.getText();
+
+                // displays wedding details
+                // creativity; "have fun at the wedding" message
+                String message = "Wedding Details:\nPartner One: " + partnerOne +
+                        "\nPartner Two: " + partnerTwo + "\nDate: " + date + "\nLocation: " + location +
+                        "\n\nHave fun at the wedding!";
+                JOptionPane.showMessageDialog(frame, message);
+            }
+        });
+
+        // components for the frame
+        frame.add(partnerOneLabel);
+        frame.add(partnerOneField);
+        frame.add(partnerTwoLabel);
+        frame.add(partnerTwoField);
+        frame.add(dateLabel);
+        frame.add(dateField);
+        frame.add(locationLabel);
+        frame.add(locationField);
+        frame.add(submitButton);
+
+        // displays the frame
+        frame.setVisible(true);
     }
 }
